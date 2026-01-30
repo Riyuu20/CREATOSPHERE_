@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CreatoSphere</title>
+    <link rel="stylesheet" href="PROFILEE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="profile-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">CreatoSphere</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-link">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="saved.html" class="nav-link">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="notes.html" class="nav-link">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="profile.html" class="nav-link active">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+        <div class="profile-banner">
+            <div class="banner-overlay"></div>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/120" alt="Profile" id="profileImage">
+                    <div class="avatar-badge">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <button class="edit-avatar-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-details">
+                    <h1 class="profile-name">Alex Johnson</h1>
+                    <p class="profile-title">Full Stack Developer</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">47</span>
+                            <span class="stat-label">Courses Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">156</span>
+                            <span class="stat-label">Hours Learned</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">23</span>
+                            <span class="stat-label">Badges Earned</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">89</span>
+                            <span class="stat-label">Friends</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-primary" id="editProfileBtn">
+                        <i class="fas fa-edit"></i>
+                        Edit Profile
+                    </button>
+                    <button class="btn-secondary" id="shareProfileBtn">
+                        <i class="fas fa-share"></i>
+                        Share Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content">
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="sidebar-section">
+                    <h3>Achievement Badges</h3>
+                    <div class="badges-grid" id="badgesGrid">
+                        <!-- Badges will be loaded here -->
+                    </div>
+                    <button class="view-all-badges">View All Badges</button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Learning Streak</h3>
+                    <div class="streak-display">
+                        <div class="streak-number">15</div>
+                        <div class="streak-label">Days</div>
+                        <div class="streak-fire">🔥</div>
+                    </div>
+                    <p>Keep it up! You're on fire!</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Friends Activity</h3>
+                    <div class="friends-activity" id="friendsActivity">
+                        <!-- Friends activity will be loaded here -->
+                    </div>
+                    <button class="find-friends-btn" id="findFriendsBtn">
+                        <i class="fas fa-user-plus"></i>
+                        Find Friends
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-main">
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="progress">Progress</button>
+                    <button class="tab-btn" data-tab="badges">Badges</button>
+                    <button class="tab-btn" data-tab="friends">Friends</button>
+                    <button class="tab-btn" data-tab="settings">Settings</button>
+                </div>
+
+                <div class="tab-content active" id="overview">
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <h4>Recent Activity</h4>
+                            <div class="activity-list" id="recentActivity">
+                                <!-- Recent activity will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <h4>Learning Progress</h4>
+                            <div class="progress-chart">
+                                <canvas id="progressChart" width="300" height="200"></canvas>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <h4>Favorite Technologies</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="progress">
+                    <div class="progress-overview">
+                        <h4>Learning Progress Overview</h4>
+                        <div class="progress-categories">
+                            <div class="progress-category">
+                                <div class="category-header">
+                                    <h5>JavaScript</h5>
+                                    <span class="progress-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="category-details">
+                                    <span>12 courses completed</span>
+                                    <span>45 hours learned</span>
+                                </div>
+                            </div>
+                            <!-- More progress categories will be added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="badges">
+                    <div class="badges-showcase">
+                        <h4>Achievement Badges</h4>
+                        <div class="badges-filter">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="completion">Completion</button>
+                            <button class="filter-btn" data-filter="streak">Streak</button>
+                            <button class="filter-btn" data-filter="special">Special</button>
+                        </div>
+                        <div class="badges-collection" id="badgesCollection">
+                            <!-- Badges will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="friends">
+                    <div class="friends-section">
+                        <div class="friends-header">
+                            <h4>Friends & Following</h4>
+                            <div class="friends-search">
+                                <input type="text" placeholder="Search friends..." id="friendsSearch">
+                                <button class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="friends-grid" id="friendsGrid">
+                            <!-- Friends will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="settings">
+                    <div class="settings-section">
+                        <h4>Profile Settings</h4>
+                        <form class="settings-form" id="settingsForm">
+                            <div class="form-group">
+                                <label>Display Name</label>
+                                <input type="text" value="Alex Johnson" id="displayName">
+                            </div>
+                            <div class="form-group">
+                                <label>Bio</label>
+                                <textarea id="userBio" placeholder="Tell us about yourself...">Passionate full-stack developer learning new technologies every day.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Learning Goals</label>
+                                <input type="text" placeholder="e.g., Master React in 3 months" id="learningGoals">
+                            </div>
+                            <div class="form-group">
+                                <label>Notification Preferences</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>Daily learning reminders</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        <span>Friend activity updates</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        <span>Weekly progress reports</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                                <button type="button" class="btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Friends Modal -->
+    <div class="modal" id="findFriendsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Find Friends</h3>
+                <button class="close-btn" id="closeFindFriends">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="search-section">
+                    <input type="text" placeholder="Search by username or email..." id="friendSearchInput">
+                    <button class="btn-primary" id="searchFriendsBtn">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Badge Modal -->
+    <div class="modal" id="badgeModal">
+        <div class="modal-content badge-modal-content">
+            <div class="modal-header">
+                <h3>Badge Details</h3>
+                <button class="close-btn" id="closeBadgeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="badge-display">
+                    <div class="badge-icon" id="badgeIcon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4 id="badgeName">JavaScript Master</h4>
+                    <p id="badgeDescription">Completed all JavaScript courses without skipping any videos</p>
+                    <div class="badge-details">
+                        <div class="badge-detail">
+                            <span class="label">Earned on:</span>
+                            <span class="value" id="badgeDate">March 15, 2024</span>
+                        </div>
+                        <div class="badge-detail">
+                            <span class="label">Course:</span>
+                            <span class="value" id="badgeCourse">Advanced JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="badge-actions">
+                        <button class="btn-primary" id="shareBadgeBtn">
+                            <i class="fas fa-share"></i>
+                            Share Badge
+                        </button>
+                        <button class="btn-secondary" id="downloadBadgeBtn">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="PROFILEE.js"></script>
+     <script src="global.js"></script>
+</body>
+</html>

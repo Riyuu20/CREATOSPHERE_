@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatoSphere - Advanced Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">CreatoSphere</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-link">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="saved.html" class="nav-link">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="notes.html" class="nav-link">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero Welcome -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="animated-particles"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="welcome-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Welcome to the Future of Learning</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">CreatoSphere</span><br>
+                    Where Knowledge<br>
+                    <span class="typing-text">Meets Innovation</span>
+                </h1>
+                <p class="hero-description">
+                    Experience next-generation learning with AI-powered progress tracking, 
+                    interactive video lectures, smart notifications, and a community of learners.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10000">0</span>
+                        <span class="stat-label">Active Learners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500">0</span>
+                        <span class="stat-label">Video Lectures</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="95">0</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary pulse-btn">
+                        <i class="fas fa-play"></i>
+                        Start Learning
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-compass"></i>
+                        Explore Content
+                    </button>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="floating-dashboard">
+                    <div class="dashboard-header">
+                        <h3>Today's Progress</h3>
+                        <div class="progress-ring">
+                            <svg class="progress-ring-svg">
+                                <circle class="progress-ring-circle" cx="30" cy="30" r="25"></circle>
+                            </svg>
+                            <span class="progress-text">75%</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-items">
+                        <div class="dashboard-item completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>JavaScript Basics</span>
+                        </div>
+                        <div class="dashboard-item completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>React Components</span>
+                        </div>
+                        <div class="dashboard-item pending">
+                            <i class="fas fa-clock"></i>
+                            <span>Node.js Fundamentals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Smart Learning Features -->
+    <section class="features-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Intelligent Learning System</h2>
+                <p class="section-subtitle">AI-powered features that adapt to your learning style</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Progress Tracking</h3>
+                    <p>AI monitors your learning patterns and suggests optimal study schedules</p>
+                    <div class="feature-demo">
+                        <div class="progress-bars">
+                            <div class="progress-bar">
+                                <span>JavaScript</span>
+                                <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                            </div>
+                            <div class="progress-bar">
+                                <span>React</span>
+                                <div class="bar"><div class="fill" style="width: 60%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Smart Notifications</h3>
+                    <p>Get personalized reminders and updates about your learning goals</p>
+                    <div class="feature-demo">
+                        <div class="notification-preview">
+                            <div class="notification-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Badge earned: JavaScript Master!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Social Learning</h3>
+                    <p>Connect with friends, share progress, and learn together</p>
+                    <div class="feature-demo">
+                        <div class="social-preview">
+                            <div class="friend-item">
+                                <img src="https://via.placeholder.com/30" alt="Friend">
+                                <span>Alex completed React Course</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Achievement System</h3>
+                    <p>Earn badges and certificates for completing courses without skipping</p>
+                    <div class="feature-demo">
+                        <div class="badge-preview">
+                            <div class="badge-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Course Completion Badge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Video Learning Platform -->
+    <section class="video-section">
+        <div class="section-content">
+            <div class="video-showcase">
+                <div class="video-left">
+                    <h2 class="section-title">Immersive Video Learning</h2>
+                    <p class="section-subtitle">
+                        Access 500+ premium video lectures with advanced playback features, 
+                        progress tracking, and completion verification system.
+                    </p>
+                    <div class="video-features">
+                        <div class="video-feature">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <h4>HD Quality Videos</h4>
+                                <p>Crystal clear 1080p video lectures</p>
+                            </div>
+                        </div>
+                        <div class="video-feature">
+                            <i class="fas fa-expand"></i>
+                            <div>
+                                <h4>Fullscreen Mode</h4>
+                                <p>Immersive learning experience</p>
+                            </div>
+                        </div>
+                        <div class="video-feature">
+                            <i class="fas fa-bookmark"></i>
+                            <div>
+                                <h4>Save & Organize</h4>
+                                <p>Bookmark videos for later viewing</p>
+                            </div>
+                        </div>
+                        <div class="video-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Skip Detection</h4>
+                                <p>AI ensures complete video watching</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-primary">
+                        <i class="fas fa-compass"></i>
+                        Explore Videos
+                    </button>
+                </div>
+                <div class="video-right">
+                    <div class="video-player-mockup">
+                        <div class="video-screen">
+                            <div class="video-thumbnail">
+                                <img src="https://via.placeholder.com/400x225" alt="Video">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-controls">
+                                <div class="control-left">
+                                    <i class="fas fa-play"></i>
+                                    <span class="time">12:34 / 45:67</span>
+                                </div>
+                                <div class="progress-timeline">
+                                    <div class="timeline-fill" style="width: 35%"></div>
+                                </div>
+                                <div class="control-right">
+                                    <i class="fas fa-bookmark"></i>
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Advanced JavaScript Concepts</h4>
+                            <p>Learn closures, promises, and async/await</p>
+                            <div class="video-stats">
+                                <span><i class="fas fa-eye"></i> 1.2K views</span>
+                                <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Daily Learning Dashboard -->
+    <section class="dashboard-section">
+        <div class="section-content">
+            <div class="dashboard-showcase">
+                <div class="dashboard-left">
+                    <div class="daily-dashboard">
+                        <div class="dashboard-header">
+                            <h3>Today's Learning Plan</h3>
+                            <div class="date-display">
+                                <i class="fas fa-calendar"></i>
+                                <span id="current-date"></span>
+                            </div>
+                        </div>
+                        <div class="todo-list">
+                            <div class="todo-item completed">
+                                <div class="todo-checkbox checked">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="todo-content">
+                                    <h4>JavaScript Arrays & Objects</h4>
+                                    <p>Duration: 45 mins • Completed at 10:30 AM</p>
+                                </div>
+                                <div class="todo-badge">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                            <div class="todo-item completed">
+                                <div class="todo-checkbox checked">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="todo-content">
+                                    <h4>React Hooks Deep Dive</h4>
+                                    <p>Duration: 60 mins • Completed at 2:15 PM</p>
+                                </div>
+                                <div class="todo-badge">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                            </div>
+                            <div class="todo-item pending">
+                                <div class="todo-checkbox">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="todo-content">
+                                    <h4>Node.js Express Framework</h4>
+                                    <p>Duration: 90 mins • Scheduled for 4:00 PM</p>
+                                </div>
+                                <div class="todo-reminder">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-stats">
+                            <div class="stat">
+                                <span class="stat-value">2/3</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">105</span>
+                                <span class="stat-label">Minutes</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2</span>
+                                <span class="stat-label">Badges</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-right">
+                    <h2 class="section-title">Smart Learning Dashboard</h2>
+                    <p class="section-subtitle">
+                        Stay organized with our intelligent to-do system that tracks your daily learning goals, 
+                        sends smart reminders, and celebrates your achievements.
+                    </p>
+                    <div class="dashboard-features">
+                        <div class="dashboard-feature">
+                            <i class="fas fa-list-check"></i>
+                            <div>
+                                <h4>Daily Task Management</h4>
+                                <p>Organize your learning schedule with smart to-do lists</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-feature">
+                            <i class="fas fa-bell-concierge"></i>
+                            <div>
+                                <h4>Smart Reminders</h4>
+                                <p>Get notified about pending tasks and study sessions</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Progress Analytics</h4>
+                                <p>Track completion rates and learning patterns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 3D Robot Assistant -->
+    <section class="robot-section">
+        <div class="section-content">
+            <div class="robot-showcase">
+                <div class="robot-left">
+                    <div class="robot-container">
+                        <div class="robot-3d">
+                            <div class="robot-head">
+                                <div class="robot-eyes">
+                                    <div class="eye left-eye"></div>
+                                    <div class="eye right-eye"></div>
+                                </div>
+                                <div class="robot-mouth"></div>
+                            </div>
+                            <div class="robot-body">
+                                <div class="robot-chest">
+                                    <div class="chest-light"></div>
+                                </div>
+                                <div class="robot-arms">
+                                    <div class="arm left-arm">
+                                        <div class="hand left-hand"></div>
+                                    </div>
+                                    <div class="arm right-arm">
+                                        <div class="hand right-hand"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="robot-speech-bubble">
+                            <p id="robot-speech">Why wait? Dive into CreatoSphere and learn something new!</p>
+                            <div class="speech-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="robot-right">
+                    <h2 class="section-title">Meet Your AI Learning Assistant</h2>
+                    <p class="section-subtitle">
+                        Our intelligent robot companion guides you through your learning journey, 
+                        provides personalized recommendations, and celebrates your achievements.
+                    </p>
+                    <div class="robot-features">
+                        <div class="robot-feature">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h4>Personalized Guidance</h4>
+                                <p>AI-powered recommendations based on your learning style</p>
+                            </div>
+                        </div>
+                        <div class="robot-feature">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h4>Interactive Conversations</h4>
+                                <p>Ask questions and get instant help from your AI tutor</p>
+                            </div>
+                        </div>
+                        <div class="robot-feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>Smart Suggestions</h4>
+                                <p>Get course recommendations and learning tips</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-section">
+                        <h3>Ready to Start Your Journey?</h3>
+                        <p>Join thousands of learners who are already transforming their skills</p>
+                        <div class="cta-buttons">
+                            <button class="btn-primary mega-btn">
+                                <i class="fas fa-rocket"></i>
+                                Start Learning Now
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-play"></i>
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab-main">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-options">
+            <button class="fab-option" data-tooltip="Add to Today's Plan">
+                <i class="fas fa-calendar-plus"></i>
+            </button>
+            <button class="fab-option" data-tooltip="Quick Note">
+                <i class="fas fa-sticky-note"></i>
+            </button>
+            <button class="fab-option" data-tooltip="Find Friends">
+                <i class="fas fa-user-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+     <script src="global.js"></script>
+</body>
+</html>

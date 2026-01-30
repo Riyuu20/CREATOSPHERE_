@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Videos - CyberLearn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="saved-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">CyberLearn</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-link">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="saved.html" class="nav-link active">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="notes.html" class="nav-link">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search saved videos..." id="searchInput">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="/placeholder.svg?height=45&width=45" alt="User">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="saved-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Saved</span> Videos
+                </h1>
+                <p class="hero-subtitle">Your personal collection of learning materials</p>
+                
+                <div class="saved-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bookmark"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalSaved">0</span>
+                            <span class="stat-label">Videos Saved</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalDuration">0h 0m</span>
+                            <span class="stat-label">Total Duration</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="thisWeek">0</span>
+                            <span class="stat-label">This Week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <div class="container">
+                <div class="controls-header">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-globe"></i>
+                            All Categories
+                        </button>
+                        <button class="filter-btn" data-category="programming">
+                            <i class="fas fa-code"></i>
+                            Programming
+                        </button>
+                        <button class="filter-btn" data-category="ai">
+                            <i class="fas fa-brain"></i>
+                            AI/ML
+                        </button>
+                        <button class="filter-btn" data-category="cybersecurity">
+                            <i class="fas fa-shield-alt"></i>
+                            Cybersecurity
+                        </button>
+                        <button class="filter-btn" data-category="blockchain">
+                            <i class="fas fa-link"></i>
+                            Blockchain
+                        </button>
+                    </div>
+                    
+                    <div class="action-group">
+                        <select class="sort-select" id="sortSelect">
+                            <option value="recent">Recently Saved</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="title">Title A-Z</option>
+                            <option value="duration">Duration</option>
+                        </select>
+                        <button class="action-btn" id="selectAllBtn">
+                            <i class="fas fa-check-square"></i>
+                            Select All
+                        </button>
+                        <button class="action-btn danger" id="deleteSelectedBtn" disabled>
+                            <i class="fas fa-trash"></i>
+                            Delete Selected
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Saved Videos Section -->
+        <section class="saved-videos-section">
+            <div class="container">
+                <div class="saved-videos-grid" id="savedVideosGrid">
+                    <!-- Saved videos will be loaded here -->
+                </div>
+                
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <h3>No saved videos yet</h3>
+                    <p>Start exploring and save videos to build your personal learning library</p>
+                    <a href="explore.html" class="btn-primary">
+                        <i class="fas fa-compass"></i>
+                        Explore Videos
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Video Title</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="video-player-container">
+                    <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-meta">
+                        <span class="video-duration" id="modalDuration">10:30</span>
+                        <span class="video-views" id="modalViews">1.2M views</span>
+                        <span class="video-date" id="modalDate">2 days ago</span>
+                        <span class="saved-date" id="modalSavedDate">Saved 1 day ago</span>
+                    </div>
+                    <div class="video-actions">
+                        <button class="action-btn remove-btn" id="removeVideoBtn">
+                            <i class="fas fa-trash"></i>
+                            Remove from Saved
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fas fa-share"></i>
+                            Share
+                        </button>
+                        <button class="action-btn fullscreen-btn" id="fullscreenBtn">
+                            <i class="fas fa-expand"></i>
+                            Fullscreen
+                        </button>
+                    </div>
+                </div>
+                <div class="video-description">
+                    <p id="modalDescription">Video description will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="delete-modal" id="deleteModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Delete</h3>
+                <button class="modal-close" id="deleteModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="delete-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p id="deleteMessage">Are you sure you want to remove this video from your saved collection?</p>
+                <div class="delete-actions">
+                    <button class="btn-secondary" id="cancelDeleteBtn">Cancel</button>
+                    <button class="btn-danger" id="confirmDeleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon fas fa-check"></i>
+            <span class="toast-message">Action completed successfully!</span>
+        </div>
+    </div>
+
+    <script src="saved.js"></script>
+     <script src="global.js"></script>
+</body>
+</html>

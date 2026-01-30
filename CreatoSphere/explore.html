@@ -1,0 +1,548 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - CreatoSphere</title>
+    <link rel="stylesheet" href="page-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="explore-page">
+    Navigation 
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">CreatoSphere</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-link active">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="saved.html" class="nav-link">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="notes.html" class="nav-link">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" placeholder="Search videos..." class="search-input" id="videoSearch">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    Explore Header
+    <section class="explore-header">
+        <div class="explore-content">
+            <h1 class="explore-title">Explore Learning Universe</h1>
+            <p class="explore-subtitle">Discover 500+ premium video lectures across multiple technologies</p>
+            <div class="explore-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Video Lectures</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Hours Content</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    Filter Section
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">All Videos</button>
+                <button class="filter-tab" data-category="javascript">JavaScript</button>
+                <button class="filter-tab" data-category="react">React</button>
+                <button class="filter-tab" data-category="nodejs">Node.js</button>
+                <button class="filter-tab" data-category="python">Python</button>
+                <button class="filter-tab" data-category="java">Java</button>
+                <button class="filter-tab" data-category="cpp">C++</button>
+            </div>
+            <div class="filter-options">
+                <select class="filter-select" id="sortBy">
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="duration">Duration</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+                <button class="view-toggle" id="viewToggle">
+                    <i class="fas fa-th-large"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+     Videos Grid 
+    <section class="videos-section">
+        <div class="videos-container">
+            <div class="videos-grid" id="videosGrid">
+                Videos will be dynamically loaded here
+            </div>
+            <div class="load-more-container">
+                <button class="btn-primary load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Videos
+                </button>
+            </div>
+        </div>
+    </section>
+
+     Video Player Modal 
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <div class="video-player-container">
+                <div class="video-header">
+                    <h3 id="videoTitle">Video Title</h3>
+                    <div class="video-actions">
+                        <button class="action-btn save-btn" id="saveVideoBtn">
+                            <i class="fas fa-bookmark"></i>
+                            Save
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fas fa-share"></i>
+                            Share
+                        </button>
+                        <button class="action-btn close-btn" id="closeVideoBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-player">
+                    <div class="video-screen" id="videoScreen">
+                        <img id="videoThumbnail" src="/placeholder.svg" alt="Video Thumbnail">
+                        <div class="play-overlay" id="playOverlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-progress-overlay">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="videoProgress"></div>
+                            </div>
+                            <div class="time-display">
+                                <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn" id="playPauseBtn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="volume-control">
+                            <button class="control-btn" id="volumeBtn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100">
+                        </div>
+                        <div class="playback-speed">
+                            <select id="speedSelect">
+                                <option value="0.5">0.5x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+                        <button class="control-btn fullscreen-btn" id="fullscreenBtn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-details">
+                        <p id="videoDescription">Video description will appear here...</p>
+                        <div class="video-stats">
+                            <span id="videoViews"><i class="fas fa-eye"></i> 0 views</span>
+                            <span id="videoLikes"><i class="fas fa-thumbs-up"></i> 0 likes</span>
+                            <span id="videoDuration"><i class="fas fa-clock"></i> 0:00</span>
+                        </div>
+                        <div class="video-tags" id="videoTags">
+                             Tags will be added dynamically
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    Skip Detection Alert 
+    <div class="skip-alert" id="skipAlert">
+        <div class="skip-alert-content">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h4>Video Skip Detected!</h4>
+            <p>Complete the video without skipping to earn your completion badge.</p>
+            <button class="btn-primary" id="continueWatching">Continue Watching</button>
+        </div>
+    </div>
+
+    <script src="explore.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Videos - CreatoSphere</title>
+    <link rel="stylesheet" href="explore.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">CreatoSphere</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-link active">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="saved.html" class="nav-link">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </a>
+                <a href="notes.html" class="nav-link">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search YouTube videos..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <div class="status-indicator online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="explore-hero">
+            <div class="hero-container">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Explore</span> Coding Videos
+                </h1>
+                <p class="hero-subtitle">Watch the best programming tutorials from YouTube</p>
+                
+                <!-- Advanced Search -->
+                <div class="hero-search">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search programming tutorials..." id="heroSearch">
+                        <button class="search-btn" id="heroSearchBtn">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <div class="suggestion-item" data-query="JavaScript tutorial">JavaScript Tutorial</div>
+                        <div class="suggestion-item" data-query="React hooks">React Hooks</div>
+                        <div class="suggestion-item" data-query="Python for beginners">Python Basics</div>
+                        <div class="suggestion-item" data-query="Node.js API">Node.js API</div>
+                        <div class="suggestion-item" data-query="CSS animations">CSS Animations</div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalVideos">50+</div>
+                        <div class="stat-label">Videos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalViews">10M+</div>
+                        <div class="stat-label">Total Views</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="savedCount">0</div>
+                        <div class="stat-label">Saved</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all">
+                        <i class="fas fa-globe"></i>
+                        All Videos
+                    </button>
+                    <button class="filter-tab" data-category="javascript">
+                        <i class="fab fa-js-square"></i>
+                        JavaScript
+                    </button>
+                    <button class="filter-tab" data-category="react">
+                        <i class="fab fa-react"></i>
+                        React
+                    </button>
+                    <button class="filter-tab" data-category="python">
+                        <i class="fab fa-python"></i>
+                        Python
+                    </button>
+                    <button class="filter-tab" data-category="nodejs">
+                        <i class="fab fa-node-js"></i>
+                        Node.js
+                    </button>
+                    <button class="filter-tab" data-category="css">
+                        <i class="fab fa-css3-alt"></i>
+                        CSS
+                    </button>
+                </div>
+
+                <div class="filter-actions">
+                    <select class="sort-select" id="sortSelect">
+                        <option value="relevance">Most Relevant</option>
+                        <option value="date">Upload Date</option>
+                        <option value="viewCount">View Count</option>
+                        <option value="rating">Rating</option>
+                        <option value="duration">Duration</option>
+                    </select>
+                    
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+
+                    <button class="refresh-btn" id="refreshBtn" title="Refresh Videos">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Grid -->
+        <section class="videos-section">
+            <div class="videos-container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Programming Videos</h2>
+                    <div class="results-info">
+                        <span id="resultsCount">Loading videos...</span>
+                    </div>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Loading amazing videos...</p>
+                </div>
+
+                <div class="videos-grid" id="videosGrid">
+                    <!-- Videos will be loaded here by JavaScript -->
+                </div>
+
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        Load More Videos
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Video Title</h3>
+                <div class="modal-controls">
+                    <button class="modal-btn fullscreen-btn" id="fullscreenBtn" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="modal-btn minimize-btn" id="minimizeBtn" title="Minimize">
+                        <i class="fas fa-compress"></i>
+                    </button>
+                    <button class="modal-btn close-btn" id="modalClose" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="video-player-container">
+                    <iframe id="videoPlayer" 
+                            width="100%" 
+                            height="500" 
+                            frameborder="0" 
+                            allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+                <div class="video-details">
+                    <div class="video-info">
+                        <div class="video-meta">
+                            <span class="video-channel" id="modalChannel">Channel Name</span>
+                            <span class="video-views" id="modalViews">0 views</span>
+                            <span class="video-date" id="modalDate">Today</span>
+                        </div>
+                        <div class="video-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-eye"></i>
+                                <span id="modalViewCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span id="modalLikes">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="modalDuration">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn" id="likeBtn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </button>
+                        <button class="action-btn save-btn" id="saveBtn">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Save</span>
+                        </button>
+                        <button class="action-btn share-btn" id="shareBtn">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="action-btn download-btn" id="downloadBtn">
+                            <i class="fas fa-download"></i>
+                            <span>Watch Later</span>
+                        </button>
+                    </div>
+                    <div class="video-description">
+                        <h4>Description</h4>
+                        <p id="modalDescription">Video description will appear here...</p>
+                        <div class="video-tags" id="modalTags">
+                            <!-- Tags will be added by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mini Player -->
+    <div class="mini-player" id="miniPlayer">
+        <div class="mini-video">
+            <iframe id="miniVideoPlayer" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        <div class="mini-controls">
+            <button class="mini-btn" id="miniPlayBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="mini-btn" id="miniExpandBtn">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button class="mini-btn" id="miniCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Toasts will be added here -->
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab" id="fabBtn">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-menu" id="fabMenu">
+            <button class="fab-item" id="randomVideoBtn">
+                <i class="fas fa-random"></i>
+                <span>Random Video</span>
+            </button>
+            <button class="fab-item" id="trendingBtn">
+                <i class="fas fa-fire"></i>
+                <span>Trending</span>
+            </button>
+            <button class="fab-item" id="playlistBtn">
+                <i class="fas fa-list"></i>
+                <span>Create Playlist</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="explore.js"></script>
+    <script src="global.js"></script>
+</body>
+</html>
